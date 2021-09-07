@@ -1,0 +1,21 @@
+.l-header {
+  width: 100%;
+  height: $header-height-sp;
+  z-index: map-get($layer, 'header');
+  background: $header-background;
+  color: $header-color;
+
+  @include mq-up('tab') {
+    height: $header-height-pc;
+  }
+
+  [data-header='true'] & {
+  }
+}
+
+// 固定
+.l-header--fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+}

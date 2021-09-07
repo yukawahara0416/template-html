@@ -1,0 +1,36 @@
+.c-navigation {
+  display: flex;
+
+  & > li {
+    margin-right: 1.2em;
+    position: relative;
+    z-index: map-get($layer, 'navigation');
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &:hover {
+      & > .c-navigation__sub {
+        opacity: 1;
+        visibility: visible;
+        top: 100%;
+      }
+    }
+  }
+}
+
+.c-navigation__sub {
+  opacity: 0;
+  visibility: hidden;
+  width: 200px;
+  position: absolute;
+  top: calc(100% - 0.2em);
+  left: 0;
+  transition: all 0.5s ease 0s;
+  z-index: map-get($layer, 'navigation') -1;
+}
+
+.c-navigation__current-show {
+  border-bottom: 2px solid black;
+}

@@ -1,0 +1,54 @@
+// .l-global-container {
+// }
+
+.l-inner {
+  margin: 0 auto;
+  padding: 0 $pd-x-sp;
+  width: $layout-width-container;
+  max-width: 100%;
+  height: inherit;
+
+  @include mq-up('tab') {
+    padding-right: $pd-x-tab;
+    padding-left: $pd-x-tab;
+  }
+
+  @include mq-up('pc') {
+    padding-right: $pd-x-pc;
+    padding-left: $pd-x-pc;
+  }
+}
+
+.l-inner--wide {
+  width: $layout-width-container * 1.1;
+}
+
+.l-inner--narrow {
+  width: $layout-width-container * 0.9;
+}
+
+.l-inner--full {
+  width: 100%;
+}
+
+.l-window-full {
+  margin: 0 calc(50% - 50vw);
+  overflow: hidden;
+  width: 100vw;
+}
+
+.l-window-right {
+  margin: 0 calc(50% - 50vw);
+  overflow: hidden;
+  padding: 0 0 0 calc(50vw - 50%);
+  width: 100vw;
+  display: block;
+}
+
+.l-window-left {
+  margin: 0 calc(50% - 50vw);
+  overflow: hidden;
+  padding: 0 calc(50vw - 50%) 0 0;
+  width: 100vw;
+  display: block;
+}

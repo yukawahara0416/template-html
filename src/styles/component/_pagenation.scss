@@ -1,0 +1,43 @@
+.c-pagenation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.c-pagenation__num {
+  background: $pagenation-background;
+  border: 1px solid $pagenation-background;
+  color: $color-text;
+  height: 42px;
+  display: inline-block;
+  line-height: 42px;
+  margin-right: 8px;
+  min-width: 42px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.3s ease 0s;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  @include mq-up('tab') {
+    &:hover {
+      background: $pagenation-background--current;
+      border: 1px solid $pagenation-background--current;
+      color: #fff;
+    }
+  }
+}
+
+.c-pagenation__num--current {
+  background: $pagenation-background--current;
+  border: 1px solid $pagenation-background--current;
+  color: #fff;
+}
+
+// .c-pagenation__num--prev {
+// }
+
+// .c-pagenation__num--next {
+// }

@@ -1,0 +1,71 @@
+.c-mainvisual {
+  width: 100%;
+  min-height: 300px;
+  position: relative;
+  background: transparent no-repeat center center / cover;
+  overflow: hidden;
+}
+
+.c-mainvisual__content {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  text-align: center;
+  font-weight: 700;
+  color: #fff;
+  padding: 0 $pd-x-sp;
+}
+
+.c-mainvisual__title {
+  font-size: 2em;
+}
+
+.c-mainvisual__lead {
+  font-size: 1em;
+  margin-top: 0.6em;
+}
+
+.c-mainvisual__video {
+  position: absolute;
+  max-height: initial;
+  max-width: initial;
+  min-height: 100vh;
+  min-width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
+.c-mainvisual--mask {
+  &::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(#000, 0.3);
+  }
+}
+
+// 高く
+.c-mainvisual--high {
+  height: 700px;
+}
+
+// 低く
+.c-mainvisual--low {
+  height: 300px;
+}
+
+// ヒーローイメージ
+.c-mainvisual--hero {
+  min-height: initial;
+  height: 100vh;
+}
+
+// 動画を背景
+.c-mainvisual--video {
+  background: none;
+}

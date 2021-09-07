@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../styles/style.css">
+  <title>Document</title>
+</head>
+<body>
+
+  <!-- ファイル選択フォームを標準化 JavaScriptに依存するので、.js-fileを設定 -->
+  <div class="c-file">
+    <label class="c-file__label" for="your-file">ファイル添付</label>
+    <input type="file" name="your-file" id="your-file" class="c-file__input js-file" />
+    <span class="c-file__result"></span>
+  </div>
+
+  <script src="../../scripts/libs/file.js"></script>
+</body>
+</html>

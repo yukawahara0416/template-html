@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../styles/style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      .c-mainvisual {
+        background-image: url(//placeimg.com/750/500/any);
+      }
+
+      .c-mainvisual--video {
+        background-image: none;
+      }
+    </style>
+
+    <div class="c-mainvisual">
+      <div class="c-mainvisual__content">
+        <div class="c-mainvisual__title">タイトル</div>
+        <div class="c-mainvisual__lead">リード文</div>
+      </div>
+    </div>
+
+    <!-- 画像の上に透過した黒色で覆う -->
+    <div class="c-mainvisual c-mainvisual--mask">
+      <div class="c-mainvisual__content">
+        <div class="c-mainvisual__title">タイトル</div>
+        <div class="c-mainvisual__lead">リード文</div>
+      </div>
+    </div>
+
+    <!-- 画面の高さを高く -->
+    <div class="c-mainvisual c-mainvisual--high">
+      <div class="c-mainvisual__content">
+        <div class="c-mainvisual__title">タイトル</div>
+        <div class="c-mainvisual__lead">リード文</div>
+      </div>
+    </div>
+
+    <!-- 画面の高さを低く -->
+    <div class="c-mainvisual c-mainvisual--low">
+      <div class="c-mainvisual__content">
+        <div class="c-mainvisual__title">タイトル</div>
+        <div class="c-mainvisual__lead">リード文</div>
+      </div>
+    </div>
+
+    <!-- 画面いっぱい（ヒーローイメージ） -->
+
+    <div class="c-mainvisual c-mainvisual--hero">
+      <div class="c-mainvisual__content">
+        <div class="c-mainvisual__title">タイトル</div>
+        <div class="c-mainvisual__lead">リード文</div>
+      </div>
+    </div>
+
+    <!-- 動画 -->
+    <div class="c-mainvisual c-mainvisual--video">
+      <video class="c-mainvisual__video" src="../images/video.mp4" muted autoplay loop></video>
+      <div class="c-mainvisual__content">
+        <div class="c-mainvisual__title">タイトル</div>
+        <div class="c-mainvisual__lead">リード文</div>
+      </div>
+    </div>
+  </body>
+</html>

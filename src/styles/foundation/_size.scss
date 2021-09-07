@@ -1,0 +1,51 @@
+// レイアウト幅
+$layout-width-sp: 480px;
+$layout-width-ls: 600px;
+$layout-width-tab: 960px;
+$layout-width-pc: 1280px;
+
+$layout-width-container: 1080px;
+
+// ブレークポイント（モバイルファースト）
+$breakpoints-up: (
+  'sp': '(min-width: #{$layout-width-sp})',
+  'ls': '(min-width: #{$layout-width-ls})',
+  'tab': '(min-width: #{$layout-width-tab})',
+  'pc': '(min-width: #{$layout-width-pc})',
+  'ie': '(-ms-high-contrast: active), (-ms-high-contrast: none)',
+);
+
+// ヘッダー高さ
+$header-height-sp: 60px;
+$header-height-pc: 60px;
+
+// z-index の指定
+$layer: (
+  loading: 200,
+  modal: 100,
+  drawer: 40,
+  floating: 30,
+  navigation: 30,
+  header: 20,
+  footer: 10,
+  default: 1,
+);
+
+// 余白
+$pd-x-pc: 0;
+$pd-x-tab: 32px;
+$pd-x-sp: 24px;
+
+// アイコン
+$icon-widht: 30px;
+$icon-height: 30px;
+$icon-font: 30px;
+
+// マーカー
+$marker-pd-x: 0.4em;
+$marker-pd-y: 1em;
+
+// ドロワー
+$drawer-bar-space: 5px;
+$drawer-bar-width: 30px;
+$drawer-bar-height: 3px;

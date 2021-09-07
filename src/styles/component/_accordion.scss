@@ -1,0 +1,44 @@
+// .c-accordion {
+// }
+
+.c-accordion__title {
+  padding: 0.4em 0.8em;
+  cursor: pointer;
+}
+
+.c-accordion__content {
+  padding: 0 0.8em;
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition-duration: 0.3s;
+
+  .is-active & {
+    padding: 0.625em 0.8em;
+    height: auto;
+    opacity: 1;
+  }
+}
+
+.c-accordion__title--arrow {
+  position: relative;
+  padding-right: 2.4em;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 0.4em;
+    transform: translateY(-50%);
+    width: 0.8em;
+    height: 0.8em;
+    background: transparent url(../images/arrow-bottom.png) no-repeat top center / cover;
+    transition: all 0.5s ease 0s;
+  }
+
+  .is-active & {
+    &::after {
+      transform: translateY(-50%) rotateX(180deg);
+    }
+  }
+}

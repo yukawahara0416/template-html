@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../styles/style.css">
+  <title>Document</title>
+</head>
+<body>
+
+  <!-- 画面中央に表示されるモーダルウインドウ -->
+  <div class="c-modal">
+    <a href="" class="c-button js-modal">モーダルを開く</a>
+    <div class="c-modal__content">
+      <p>モーダルのコンテンツ</p>
+    </div>
+    <div class="c-modal__close js-modal"></div>
+  </div>
+
+  <!-- 画面いっぱいに開くモーダルウインドウ -->
+  <div class="c-modal">
+    <a href="" class="c-button js-modal">モーダルを開く</a>
+    <div class="c-modal__content c-modal__content--cover">
+      <p>モーダルのコンテンツ</p>
+      <a href="" class="c-button js-modal">モーダルを閉じる</a>
+    </div>
+    <div class="c-modal__close js-modal"></div>
+  </div>
+
+  <script src="../../scripts/libs/modal.js"></script>
+</body>
+</html>

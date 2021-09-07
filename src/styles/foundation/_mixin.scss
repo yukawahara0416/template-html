@@ -1,0 +1,58 @@
+// メディアクエリー（モバイルファースト）
+@mixin mq-up($breakpoint: tab) {
+  @media #{map-get($breakpoints-up, $breakpoint)} {
+    @content;
+  }
+}
+
+// animation
+@mixin animation($name, $duration: 1s, $timing-function: ease, $delay: 0s, $iteration-count: 1, $direction: normal, $fill-mode: forwards) {
+  animation: {
+    name: $name;
+    duration: $duration;
+    timing-function: $timing-function;
+    delay: $delay;
+    iteration-count: $iteration-count;
+    direction: $direction;
+    fill-mode: $fill-mode;
+  }
+}
+
+// 疑似要素
+@mixin pseudo($direction: tl, $content: '', $display: block, $top: 0, $right: 0, $bottom: 0, $left: 0, $width: false, $height: false) {
+  @if $direction==tl {
+    top: $top;
+    left: $left;
+  }
+  @if $direction==tr {
+    top: $top;
+    right: $right;
+  }
+  @if $direction==bl {
+    bottom: $bottom;
+    left: $left;
+  }
+  @if $direction==br {
+    bottom: $bottom;
+    right: $right;
+  }
+  @if $direction==xy {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+  content: $content;
+  display: $display;
+  position: absolute;
+
+  @if $width {
+    width: $width;
+  }
+  @if $height {
+    height: $height;
+  }
+
+  @content;
+}

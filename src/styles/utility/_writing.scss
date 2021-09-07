@@ -1,0 +1,28 @@
+.u-japanease {
+  writing-mode: vertical-rl;
+  overflow: hidden;
+}
+
+.u-word-break {
+  word-break: break-all;
+}
+
+.u-white-space {
+  white-space: nowrap;
+}
+
+.js-text-animation-order {
+  opacity: 0;
+
+  &.inview {
+    opacity: 1;
+  }
+}
+
+.js-text-char {
+  opacity: 0;
+
+  .inview & {
+    display: inline-block;
+  }
+}

@@ -1,0 +1,4 @@
+.u-valid-vh {
+  min-height: 100vh; /* カスタムプロパティ未対応ブラウザ用のフォールバック */
+  min-height: calc(var(--vh, 1vh) * 100);
+}

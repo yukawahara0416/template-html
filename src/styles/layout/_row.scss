@@ -1,0 +1,207 @@
+@use 'sass:math';
+
+.l-row {
+  display: flex;
+  flex-wrap: wrap;
+  height: inherit;
+}
+
+// 上下中央
+.l-row--middle {
+  align-items: center;
+}
+
+// 高さを揃える
+.l-row--align-height {
+  align-items: stretch;
+}
+
+// 中央寄せ
+.l-row--center {
+  justify-content: center;
+}
+
+// 反転
+.l-row--reverse {
+  flex-direction: row-reverse;
+}
+
+// カードに余白を作る（カードの上下左右すべて）
+// .l-row--padding {
+// }
+
+// カードに余白を作る（カード間のみ）
+.l-row--padding-between {
+  margin: -0.8em 0 0 -0.8em;
+}
+
+// flexインナー
+.l-row__col-inner {
+  .l-row--align-height & {
+    flex-grow: 1;
+  }
+}
+
+// flexアイテム
+.l-row__col {
+  padding: 0;
+  display: flex;
+  align-items: stretch;
+  flex-direction: column;
+
+  .l-row--padding & {
+    padding: 0.8em;
+  }
+
+  .l-row--padding-between & {
+    padding: 0.8em 0 0 0.8em;
+  }
+}
+
+.l-row__col01 {
+  width: (math.div(1, 12) * 100%);
+}
+
+.l-row__col02 {
+  width: (math.div(2, 12) * 100%);
+}
+
+.l-row__col03 {
+  width: (math.div(3, 12) * 100%);
+}
+
+.l-row__col04 {
+  width: (math.div(4, 12) * 100%);
+}
+
+.l-row__col05 {
+  width: (math.div(5, 12) * 100%);
+}
+
+.l-row__col06 {
+  width: (math.div(6, 12) * 100%);
+}
+
+.l-row__col07 {
+  width: (math.div(7, 12) * 100%);
+}
+
+.l-row__col08 {
+  width: (math.div(8, 12) * 100%);
+}
+
+.l-row__col09 {
+  width: (math.div(9, 12) * 100%);
+}
+
+.l-row__col10 {
+  width: (math.div(10, 12) * 100%);
+}
+
+.l-row__col11 {
+  width: (math.div(11, 12) * 100%);
+}
+
+.l-row__col12 {
+  width: (math.div(12, 12) * 100%);
+}
+
+@include mq-up('tab') {
+  .l-row__col01-tab {
+    width: (math.div(1, 12) * 100%);
+  }
+
+  .l-row__col02-tab {
+    width: (math.div(2, 12) * 100%);
+  }
+
+  .l-row__col03-tab {
+    width: (math.div(3, 12) * 100%);
+  }
+
+  .l-row__col04-tab {
+    width: (math.div(4, 12) * 100%);
+  }
+
+  .l-row__col05-tab {
+    width: (math.div(5, 12) * 100%);
+  }
+
+  .l-row__col06-tab {
+    width: (math.div(6, 12) * 100%);
+  }
+
+  .l-row__col07-tab {
+    width: (math.div(7, 12) * 100%);
+  }
+
+  .l-row__col08-tab {
+    width: (math.div(8, 12) * 100%);
+  }
+
+  .l-row__col09-tab {
+    width: (math.div(9, 12) * 100%);
+  }
+
+  .l-row__col10-tab {
+    width: (math.div(10, 12) * 100%);
+  }
+
+  .l-row__col11-tab {
+    width: (math.div(11, 12) * 100%);
+  }
+
+  .l-row__col12-tab {
+    width: (math.div(12, 12) * 100%);
+  }
+}
+
+@include mq-up('pc') {
+  .l-row__col01-pc {
+    width: (math.div(1, 12) * 100%);
+  }
+
+  .l-row__col02-pc {
+    width: (math.div(2, 12) * 100%);
+  }
+
+  .l-row__col03-pc {
+    width: (math.div(3, 12) * 100%);
+  }
+
+  .l-row__col04-pc {
+    width: (math.div(4, 12) * 100%);
+  }
+
+  .l-row__col05-pc {
+    width: (math.div(5, 12) * 100%);
+  }
+
+  .l-row__col06-pc {
+    width: (math.div(6, 12) * 100%);
+  }
+
+  .l-row__col07-pc {
+    width: (math.div(7, 12) * 100%);
+  }
+
+  .l-row__col08-pc {
+    width: (math.div(8, 12) * 100%);
+  }
+
+  .l-row__col09-pc {
+    width: (math.div(9, 12) * 100%);
+  }
+
+  .l-row__col10-pc {
+    width: (math.div(10, 12) * 100%);
+  }
+
+  .l-row__col11-pc {
+    width: (math.div(11, 12) * 100%);
+  }
+
+  .l-row__col12-pc {
+    width: (math.div(12, 12) * 100%);
+  }
+}

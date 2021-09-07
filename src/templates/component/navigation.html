@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../styles/style.css">
+  <title>Document</title>
+</head>
+<body>
+
+  <style>
+    .c-navigation {
+      position: fixed;
+      top: 0;
+      left: 0;
+    }
+
+    section {
+      margin-top: 10em;
+      height: 2000px;
+    }
+
+  </style>
+
+  <ul class="c-navigation">
+    <li><a href="#a-menu1">メニュー1</a></li>
+    <li>
+      <a href="#a-menu2">メニュー2</a>
+      <ul class="c-navigation__sub">
+        <li><a href="#a-sub-menu1">サブメニュー1</a></li>
+        <li><a href="#a-sub-menu2">サブメニュー2</a></li>
+        <li><a href="#a-sub-menu3">サブメニュー3</a></li>
+      </ul>
+    </li>
+    <li><a href="#a-menu3">メニュー3</a></li>
+    <li><a href="#a-menu4">メニュー4</a></li>
+    <li><a href="#a-menu5">メニュー5</a></li>
+  </ul>
+
+  <section id="a-menu1" class="js-nav-highlight">メニュー1</section>
+  <section id="a-menu2" class="js-nav-highlight">メニュー2</section>
+  <section id="a-menu3" class="js-nav-highlight">メニュー3</section>
+  <section id="a-menu4" class="js-nav-highlight">メニュー4</section>
+  <section id="a-menu5" class="js-nav-highlight">メニュー5</section>
+  <section id="a-sub-menu1" class="js-nav-highlight">サブメニュー1</section>
+  <section id="a-sub-menu2" class="js-nav-highlight">サブメニュー2</section>
+  <section id="a-sub-menu3" class="js-nav-highlight">サブメニュー3</section>
+
+  <script src="../../scripts/vendors/intersection-observer-polyfill.js"></script>
+  <script src="../../scripts/libs/scroll-observer.js"></script>
+  <script src="../../scripts/libs/nav-highlight.js"></script>
+
+</body>
+</html>

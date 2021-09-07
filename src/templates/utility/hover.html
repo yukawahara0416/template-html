@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../styles/style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      .c-card,
+      .c-card__img,
+      .c-card__img > div {
+        width: 100%;
+        height: 500px;
+      }
+    </style>
+
+    <div class="c-btn u-hover-scale">拡大</div>
+    <div class="c-btn u-hover-opacity">透過</div>
+    <div class="c-btn u-hover-up">上に移動</div>
+    <div class="c-btn u-hover-down">下に移動</div>
+    <div class="c-btn u-hover-rotate-x">X軸を中心に回転</div>
+    <div class="c-btn u-hover-rotate-y">Y軸を中心に回転</div>
+    <div class="c-btn u-hover-rotate-z">Z軸を中心に回転</div>
+    <div class="c-btn u-hover-darken">色を重ねる</div>
+
+    <div class="c-card">
+      <div class="c-card__img u-hover-zoom">
+        <img src="//placeimg.com/750/500/any" />
+      </div>
+    </div>
+
+    <div class="c-card">
+      <div class="c-card__img u-hover-zoom">
+        <div style="background-image: url(//placeimg.com/750/500/any)"></div>
+      </div>
+    </div>
+  </body>
+</html>

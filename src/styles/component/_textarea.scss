@@ -1,0 +1,19 @@
+.c-text {
+  @extend %text;
+}
+
+.c-text--full {
+  width: 100%;
+}
+
+.c-textarea {
+  @extend %textarea;
+}
+
+.c-textarea--resize {
+  resize: both;
+}
+
+.c-textarea--full {
+  width: 100%;
+}

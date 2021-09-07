@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../styles/style.css">
+  <title>Document</title>
+</head>
+<body>
+
+  <div class="c-tab">
+    <nav class="c-tab__nav">
+      <div class="c-tab__item js-tab is-checked" data-target="js-for-tab01">タブ1</div>
+      <div class="c-tab__item js-tab" data-target="js-for-tab02">タブ2</div>
+      <div class="c-tab__item js-tab" data-target="js-for-tab03">タブ3</div>
+    </nav>
+    <div class="c-tab__contents">
+      <div id="js-for-tab01" class="c-tab__content is-checked">
+        タブ1のコンテンツ
+      </div>
+      <div id="js-for-tab02" class="c-tab__content">
+        タブ2のコンテンツ
+      </div>
+      <div id="js-for-tab03" class="c-tab__content">
+        タブ3のコンテンツ
+      </div>
+    </div>
+  </div>
+
+  <script src="../../scripts/libs/tab.js"></script>
+</body>
+</html>

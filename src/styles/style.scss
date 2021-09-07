@@ -1,0 +1,32 @@
+@import 'foundation/**';
+@import 'external/**';
+@import 'layout/**';
+@import 'component/**';
+@import 'project/**';
+@import 'utility/**';
+
+@import 'breakpoints/base';
+
+@include mq-up('sp') {
+  @import 'breakpoints/480up';
+}
+
+@include mq-up('ls') {
+  @import 'breakpoints/600up';
+}
+
+@include mq-up('tab') {
+  @import 'breakpoints/960up';
+}
+
+@include mq-up('pc') {
+  @import 'breakpoints/1280up';
+}
+
+@media (min-resolution: 192dpi), (-webkit-min-device-pixel-ratio: 2) {
+  @import 'breakpoints/2x';
+}
+
+@media print {
+  @import 'breakpoints/print';
+}

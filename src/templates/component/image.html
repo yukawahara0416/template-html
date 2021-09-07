@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../styles/style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- HTMLのsrcsetを使って画像をレスポンシブにRetina対応させてみよう | Kia King http://kia-king.com/blog/tutorial/responsive-images-with-srcset/ -->
+
+    <h2 class="c-heading--type002">imgタグでレスポンシブイメージ</h2>
+    <div class="u-image__cover">
+      <img
+        class="js-object-fit"
+        src="//placehold.jp/400x250.png"
+        srcset="//placehold.jp/400x250.png 480w, //placehold.jp/800x250.png 600w, //placehold.jp/1100x550.png 960w"
+      />
+    </div>
+
+    <h2 class="c-heading--type002">Retinaディスプレイで画像切替え</h2>
+    <div class="u-image__cover">
+      <img class="js-object-fit" src="//placehold.jp/1150x550x1.png" srcset="//placehold.jp/1150x550x1.png 1x, //placehold.jp/1150x550x2.png 2x" />
+    </div>
+
+    <h2 class="c-heading--type002">backgroundでレスポンシブイメージ（height固定）</h2>
+    <div class="p-bg-img c-background"></div>
+
+    <h2 class="c-heading--type002">backgroundでレスポンシブイメージ（縦横比）</h2>
+    <div class="p-bg-img c-background c-background--size-ratio"></div>
+
+    <h2 class="c-heading--type002">pictureタグでレスポンシブイメージ</h2>
+    <picture class="u-image__cover">
+      <source media="(min-width:960px)" srcset="//placehold.jp/1100x550.png" />
+      <source media="(min-width:600px)" srcset="//placehold.jp/800x250.png" />
+      <img class="js-object-fit" src="//placehold.jp/400x250.png" />
+    </picture>
+
+    <style>
+      .p-bg-img {
+        background-image: url(//placehold.jp/400x250.png);
+      }
+
+      /* レスポンシブイメージ */
+      @media screen and (min-width: 480px) {
+        .p-bg-img {
+          background-image: url(//placehold.jp/800x250.png);
+        }
+      }
+
+      @media screen and (min-width: 960px) {
+        .p-bg-img {
+          background-image: url(//placehold.jp/1100x550.png);
+        }
+      }
+    </style>
+
+    <script src="../../scripts/vendors/ofi.min.js"></script>
+    <script src="../../scripts/libs/object-fit.js"></script>
+  </body>
+</html>

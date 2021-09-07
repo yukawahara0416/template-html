@@ -1,0 +1,8 @@
+@include mq-up('pc') {
+  // PC以上では電話番号のリンクを無効にします
+  a[href*='tel:'] {
+    pointer-events: none;
+    cursor: default;
+    text-decoration: none;
+  }
+}

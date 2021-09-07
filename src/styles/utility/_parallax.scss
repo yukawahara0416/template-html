@@ -1,0 +1,48 @@
+$pattern: (
+  '': translate(0, 0),
+  '-up': translateY(6px),
+  '-down': translateY(-6px),
+  '-left': translateX(40px),
+  '-right': translateX(-40px),
+);
+
+// 単独で利用します
+@each $key, $value in $pattern {
+  .u-fadein#{$key} {
+    transform: $value;
+    opacity: 0;
+    transition: all 0.8s;
+
+    &.inview {
+      transform: none;
+      opacity: 1;
+    }
+  }
+}
+
+// グループで利用します
+@each $key, $value in $pattern {
+  .u-fadein-group#{$key} {
+    & .item {
+      transform: $value;
+      opacity: 0;
+      transition: all 0.8s;
+    }
+
+    &.inview .item {
+      transform: none;
+      opacity: 1;
+    }
+  }
+}
+
+// 要素間にdelayを設定
+.u-fadein-delay {
+  &.inview .item {
+    @for $i from 1 through 10 {
+      &:nth-child(#{$i}) {
+        transition-delay: $i * 0.1s;
+      }
+    }
+  }
+}
