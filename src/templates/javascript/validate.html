@@ -1,50 +1,49 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../../styles/style.css">
-  <title>Document</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../styles/style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form id="myform">
+      <div>
+        <label>Name</label>
+        <input type="text" name="name" id="name" />
+      </div>
+      <div>
+        <label>Kana</label>
+        <input type="text" name="kana" id="kana" />
+      </div>
+      <div>
+        <label>Age</label>
+        <input type="number" min="18" name="age" id="age" />
+      </div>
+      <div>
+        <label>Email</label>
+        <input type="text" name="email" id="email" />
+      </div>
+      <div>
+        <label>Tel</label>
+        <input type="text" name="tel" id="tel" />
+      </div>
+      <div>
+        <label>Mobile</label>
+        <input type="text" name="mobile" id="mobile" />
+      </div>
+      <div>
+        <label>ZIP</label>
+        <input type="text" name="zip" id="zip" />
+      </div>
+      <div id="error"></div>
+      <input type="submit" value="submit" />
+    </form>
 
-  <form id="myform">
-    <div>
-      <label>Name</label>
-      <input type="text" name="name" id="name">
-    </div>
-    <div>
-      <label>Kana</label>
-      <input type="text" name="kana" id="kana">
-    </div>
-    <div>
-      <label>Age</label>
-      <input type="number" min="18" name="age" id="age">
-    </div>
-    <div>
-      <label>Email</label>
-      <input type="text" name="email" id="email">
-    </div>
-    <div>
-      <label>Tel</label>
-      <input type="text" name="tel" id="tel">
-    </div>
-    <div>
-      <label>Mobile</label>
-      <input type="text" name="mobile" id="mobile">
-    </div>
-    <div>
-      <label>ZIP</label>
-      <input type="text" name="zip" id="zip">
-    </div>
-    <div id="error"></div>
-    <input type="submit" value="submit">
-  </form>
-
-  <script src="../../scripts/vendors/jquery-3.x-git.min.js"></script>
-  <script src="../../scripts/vendors/jquery.validate.min.js"></script>
-  <script src="../../scripts/vendors/jquery.validate.japlugin.js"></script>
-  <script src="../../scripts/libs/validate.js"></script>
-</body>
+    <script src="../../scripts/vendors/jquery-3.x-git.min.js"></script>
+    <script src="../../scripts/vendors/jquery.validate.min.js"></script>
+    <script src="../../scripts/vendors/jquery.validate.japlugin.js"></script>
+    <script src="../../scripts/libs/validate.js"></script>
+  </body>
 </html>

@@ -1,110 +1,107 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../../styles/style.css">
-  <title>Document</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../styles/style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      .l-row {
+        margin-top: 10em;
+      }
+    </style>
 
-  <style>
-    .l-row {
-      margin-top: 10em;
-    }
-
-  </style>
-
-  <!-- display: flexでの横並び -->
-  <!-- 横並びのアイテムをl-rowで囲みます -->
-  <!-- 小要素の数字を合計していき12を超えたら改行されるような仕組み -->
-  <div class="l-row">
-    <div class="l-row__col l-row__col04">col04</div>
-    <div class="l-row__col l-row__col04">col04</div>
-    <div class="l-row__col l-row__col04">col04</div>
-    <div class="l-row__col l-row__col04">col04</div>
-    <div class="l-row__col l-row__col04">col04</div>
-    <div class="l-row__col l-row__col04">col04</div>
-  </div>
-
-  <!-- 上下中央に揃える -->
-  <div class="l-row l-row--middle">
-    <div class="l-row__col l-row__col04">HTMLの1番目</div>
-    <div class="l-row__col l-row__col04">HTMLの2番目を<br>改行して高さを出す</div>
-    <div class="l-row__col l-row__col04">HTMLの3番目</div>
-  </div>
-
-  <!-- 高さを揃える -->
-  <div class="l-row l-row--align-height">
-    <div class="l-row__col l-row__col04">
-      <div class="l-row__col-inner">HTMLの1番目</div>
+    <!-- display: flexでの横並び -->
+    <!-- 横並びのアイテムをl-rowで囲みます -->
+    <!-- 小要素の数字を合計していき12を超えたら改行されるような仕組み -->
+    <div class="l-row">
+      <div class="l-row__col l-row__col04">col04</div>
+      <div class="l-row__col l-row__col04">col04</div>
+      <div class="l-row__col l-row__col04">col04</div>
+      <div class="l-row__col l-row__col04">col04</div>
+      <div class="l-row__col l-row__col04">col04</div>
+      <div class="l-row__col l-row__col04">col04</div>
     </div>
-    <div class="l-row__col l-row__col04">
-      <div class="l-row__col-inner">HTMLの2番目を<br>改行して高さを出す</div>
+
+    <!-- 上下中央に揃える -->
+    <div class="l-row l-row--middle">
+      <div class="l-row__col l-row__col04">HTMLの1番目</div>
+      <div class="l-row__col l-row__col04">HTMLの2番目を<br />改行して高さを出す</div>
+      <div class="l-row__col l-row__col04">HTMLの3番目</div>
     </div>
-    <div class="l-row__col l-row__col04">
-      <div class="l-row__col-inner">HTMLの3番目</div>
+
+    <!-- 高さを揃える -->
+    <div class="l-row l-row--align-height">
+      <div class="l-row__col l-row__col04">
+        <div class="l-row__col-inner">HTMLの1番目</div>
+      </div>
+      <div class="l-row__col l-row__col04">
+        <div class="l-row__col-inner">HTMLの2番目を<br />改行して高さを出す</div>
+      </div>
+      <div class="l-row__col l-row__col04">
+        <div class="l-row__col-inner">HTMLの3番目</div>
+      </div>
     </div>
-  </div>
 
-  <!-- 左右中央に揃える -->
-  <div class="l-row l-row--center">
-    <div class="l-row__col l-row__col04">HTMLの1番目</div>
-    <div class="l-row__col l-row__col04">HTMLの2番目</div>
-  </div>
+    <!-- 左右中央に揃える -->
+    <div class="l-row l-row--center">
+      <div class="l-row__col l-row__col04">HTMLの1番目</div>
+      <div class="l-row__col l-row__col04">HTMLの2番目</div>
+    </div>
 
-  <!-- アイテムの並び順を反転 -->
-  <div class="l-row l-row--reverse">
-    <div class="l-row__col l-row__col06">HTMLの1番目</div>
-    <div class="l-row__col l-row__col06">HTMLの2番目</div>
-  </div>
+    <!-- アイテムの並び順を反転 -->
+    <div class="l-row l-row--reverse">
+      <div class="l-row__col l-row__col06">HTMLの1番目</div>
+      <div class="l-row__col l-row__col06">HTMLの2番目</div>
+    </div>
 
-  <!-- アイテムに余白を与える（上下左右すべて） -->
-  <div class="l-row l-row--padding">
-    <div class="l-row__col l-row__col02">HTMLの1番目</div>
-    <div class="l-row__col l-row__col02">HTMLの2番目</div>
-    <div class="l-row__col l-row__col02">HTMLの3番目</div>
-    <div class="l-row__col l-row__col02">HTMLの4番目</div>
-    <div class="l-row__col l-row__col02">HTMLの5番目</div>
-    <div class="l-row__col l-row__col02">HTMLの6番目</div>
-  </div>
+    <!-- アイテムに余白を与える（上下左右すべて） -->
+    <div class="l-row l-row--padding">
+      <div class="l-row__col l-row__col02">HTMLの1番目</div>
+      <div class="l-row__col l-row__col02">HTMLの2番目</div>
+      <div class="l-row__col l-row__col02">HTMLの3番目</div>
+      <div class="l-row__col l-row__col02">HTMLの4番目</div>
+      <div class="l-row__col l-row__col02">HTMLの5番目</div>
+      <div class="l-row__col l-row__col02">HTMLの6番目</div>
+    </div>
 
-  <!-- アイテムに余白を与える（アイテム間のみ） -->
-  <div class="l-row l-row--padding-between">
-    <div class="l-row__col l-row__col02">HTMLの1番目</div>
-    <div class="l-row__col l-row__col02">HTMLの2番目</div>
-    <div class="l-row__col l-row__col02">HTMLの3番目</div>
-    <div class="l-row__col l-row__col02">HTMLの4番目</div>
-    <div class="l-row__col l-row__col02">HTMLの5番目</div>
-    <div class="l-row__col l-row__col02">HTMLの6番目</div>
-  </div>
+    <!-- アイテムに余白を与える（アイテム間のみ） -->
+    <div class="l-row l-row--padding-between">
+      <div class="l-row__col l-row__col02">HTMLの1番目</div>
+      <div class="l-row__col l-row__col02">HTMLの2番目</div>
+      <div class="l-row__col l-row__col02">HTMLの3番目</div>
+      <div class="l-row__col l-row__col02">HTMLの4番目</div>
+      <div class="l-row__col l-row__col02">HTMLの5番目</div>
+      <div class="l-row__col l-row__col02">HTMLの6番目</div>
+    </div>
 
-  <!-- l-rowの子要素として横並びの幅を指定するために必要不可欠な要素 -->
-  <div class="l-row l-row--center">
-    <div class="l-row__col l-row__col04">HTMLの1番目</div>
-    <div class="l-row__col l-row__col04">HTMLの2番目</div>
-  </div>
+    <!-- l-rowの子要素として横並びの幅を指定するために必要不可欠な要素 -->
+    <div class="l-row l-row--center">
+      <div class="l-row__col l-row__col04">HTMLの1番目</div>
+      <div class="l-row__col l-row__col04">HTMLの2番目</div>
+    </div>
 
-  <!-- 数字の部分に12を何等分するか指定する -->
-  <!-- 数字は01〜12まで指定できます -->
-  <!-- 例えば、04を指定すると、4/12*100%=33.3%として幅を持たせることになります -->
-  <div class="l-row l-row--center">
-    <div class="l-row__col l-row__col04">33.3%分の幅の子要素</div>
-    <div class="l-row__col l-row__col08">66.6%分の幅の子要素</div>
-  </div>
+    <!-- 数字の部分に12を何等分するか指定する -->
+    <!-- 数字は01〜12まで指定できます -->
+    <!-- 例えば、04を指定すると、4/12*100%=33.3%として幅を持たせることになります -->
+    <div class="l-row l-row--center">
+      <div class="l-row__col l-row__col04">33.3%分の幅の子要素</div>
+      <div class="l-row__col l-row__col08">66.6%分の幅の子要素</div>
+    </div>
 
-  <!-- -tabを追加することでタブレット時用の幅を持たせることが可能 -->
-  <div class="l-row l-row--center">
-    <div class="l-row__col l-row__col12 l-row__col04-tab">スマホ時は100%、タブレット時は33.3%分の幅の子要素</div>
-    <div class="l-row__col l-row__col12 l-row__col08-tab">スマホ時は100%、タブレット時は66.6%分の幅の子要素</div>
-  </div>
+    <!-- -tabを追加することでタブレット時用の幅を持たせることが可能 -->
+    <div class="l-row l-row--center">
+      <div class="l-row__col l-row__col12 l-row__col04-tab">スマホ時は100%、タブレット時は33.3%分の幅の子要素</div>
+      <div class="l-row__col l-row__col12 l-row__col08-tab">スマホ時は100%、タブレット時は66.6%分の幅の子要素</div>
+    </div>
 
-  <!-- -pcを追加することでPC時用の幅を持たせることが可能 -->
-  <div class="l-row l-row--center">
-    <div class="l-row__col l-row__col12 l-row__col04-tab l-row__col08-pc">スマホ時は100%、タブレット時は33.3%、PC時は66.6%分の幅の子要素素</div>
-    <div class="l-row__col l-row__col12 l-row__col08-tab l-row__col04-pc">スマホ時は100%、タブレット時は66.6%、PC時は33.3%分の幅の子要素</div>
-  </div>
-
-</body>
+    <!-- -pcを追加することでPC時用の幅を持たせることが可能 -->
+    <div class="l-row l-row--center">
+      <div class="l-row__col l-row__col12 l-row__col04-tab l-row__col08-pc">スマホ時は100%、タブレット時は33.3%、PC時は66.6%分の幅の子要素素</div>
+      <div class="l-row__col l-row__col12 l-row__col08-tab l-row__col04-pc">スマホ時は100%、タブレット時は66.6%、PC時は33.3%分の幅の子要素</div>
+    </div>
+  </body>
 </html>

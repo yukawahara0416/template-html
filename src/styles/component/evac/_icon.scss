@@ -1,6 +1,6 @@
 .c-icon {
   display: inline-block;
-  width: $icon-widht;
+  width: $icon-width;
   height: $icon-height;
   font-size: $icon-font;
   position: relative;
@@ -32,7 +32,7 @@
     &::before,
     &::after {
       display: block;
-      content: '';
+      content: "";
       position: absolute;
       top: 50%;
       left: 50%;
@@ -68,7 +68,7 @@
     &::before,
     &::after {
       display: block;
-      content: '';
+      content: "";
       position: absolute;
       top: 50%;
       left: 50%;
@@ -231,7 +231,7 @@
     &::after {
       position: absolute;
       display: block;
-      content: '';
+      content: "";
       top: 50%;
       left: 50%;
       width: 72%;

@@ -1,28 +1,30 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../../styles/style.css">
-  <title>Document</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../styles/style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 文字全体を覆ったマーカー -->
+    <p>ここは<span class="c-marker">マーカー</span>です。</p>
+    <!-- 文字半分を覆ったマーカー -->
+    <p>ここは<span class="c-marker c-marker--thin">マーカー</span>です。</p>
+    <!-- ストライプ状のマーカー -->
+    <p>ここは<span class="c-marker c-marker--thin c-marker--stripe">マーカー</span>です。</p>
+    <!-- スクロールと連動してアニメーションするマーカー（改行しても途切れない） -->
+    <div class="c-marker c-marker--thin c-marker--stripe js-marker">
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facilis deserunt minima id ipsa. Quo voluptatum alias minima nemo iste necessitatibus
+      itaque corporis rerum maiores voluptates! Ab voluptates iure id necessitatibus!
+    </div>
 
-  <!-- 文字全体を覆ったマーカー -->
-  <p>ここは<span class="c-marker">マーカー</span>です。</p>
-  <!-- 文字半分を覆ったマーカー -->
-  <p>ここは<span class="c-marker c-marker--thin">マーカー</span>です。</p>
-  <!-- ストライプ状のマーカー -->
-  <p>ここは<span class="c-marker c-marker--thin c-marker--stripe">マーカー</span>です。</p>
-  <!-- スクロールと連動してアニメーションするマーカー（改行しても途切れない） -->
-  <div class="c-marker c-marker--thin c-marker--stripe js-marker">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facilis deserunt minima id ipsa. Quo voluptatum alias minima nemo iste necessitatibus itaque corporis rerum maiores voluptates! Ab voluptates iure id necessitatibus!</div>
+    <!-- 改行しても途切れないマーカー -->
+    <!-- <div class="c-marker c-marker--cover">マーカーを<br />改行しても<br />マーカーのまま</div> -->
 
-  <!-- 改行しても途切れないマーカー -->
-  <!-- <div class="c-marker c-marker--cover">マーカーを<br />改行しても<br />マーカーのまま</div> -->
-
-  <script src="../../scripts/vendors/intersection-observer-polyfill.js"></script>
-  <script src="../../scripts/libs/scroll-observer.js"></script>
-  <script src="../../scripts/libs/marker.js"></script>
-</body>
+    <script src="../../scripts/vendors/intersection-observer-polyfill.js"></script>
+    <script src="../../scripts/libs/scroll-observer.js"></script>
+    <script src="../../scripts/libs/marker.js"></script>
+  </body>
 </html>

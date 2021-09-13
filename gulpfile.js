@@ -1,9 +1,12 @@
+// srcディレクトリまでのパスを指定できます
+const path = "";
+// プロキシを指定できます（Local by Flywheel にある「Site Domain」に合わせる）
+const proxy = "dip-code.local";
+
 const gulp = require("gulp");
 const $ = require("gulp-load-plugins")({
   pattern: [
-    // 名前のあたまに「gulp」がつくプラグインをまとめてrequire
-    "gulp{-,.}*",
-    // そのほかのプラグイン
+    "gulp{-,.}*", // 名前のあたまに「gulp」がつくプラグインをまとめてrequire
     "autoprefixer",
     "browser-sync",
     "css-declaration-sorter",
@@ -11,13 +14,13 @@ const $ = require("gulp-load-plugins")({
     "purgecss-with-wordpress",
     "imagemin-pngquant",
   ],
-  // gulp-sassにSassコンパイラをセットしています
+  // gulp-sassにSassコンパイラをセット
   postRequireTransforms: {
     sass: function (sass) {
       return sass(require("sass"));
     },
   },
-  // 名前が長いプラグインを短縮しています
+  // 名前が長いプラグインを短縮
   rename: {
     "gulp-merge-media-queries": "mmq",
     "css-declaration-sorter": "cssdeclsort",
@@ -31,9 +34,13 @@ const $ = require("gulp-load-plugins")({
 
 gulp.task("sass", function (done) {
   gulp
-    .src("src/styles/**/*.scss")
+    .src(`${path}src/styles/**/*.scss`)
     .pipe($.plumber({ errorHandler: $.notify.onError({ title: "gulp sassでエラーが発生しました", message: "<%= error.message %>" }) }))
-    .pipe($.sassGlob())
+    .pipe(
+      $.sassGlob({
+        ignorePaths: ["**/evac/**/*.scss"],
+      })
+    )
     .pipe($.sass({ outputStyle: "expanded" }))
     .pipe($.postcss([$.autoprefixer()]))
     .pipe($.postcss([$.cssdeclsort({ order: "alphabetical" })]))
@@ -44,17 +51,20 @@ gulp.task("sass", function (done) {
     // 未使用のクラスをCSSから削除します
     // .pipe(
     //   $.purgecss({
-    //     content: ['dist/*.html', 'dist/**/*.js'],
+    //     content: [`${path}dist/*.html`, `${path}dist/**/*.js`],
     //     whitelist: $.purgecssWp.whitelist,
     //     whitelistPatterns: $.purgecssWp.whitelistPatterns
     //   })
     // )
-    // コードをminify
+
+    // 開発用のファイル生成
+    .pipe(gulp.dest(`${path}src/styles`))
+
+    // 本番用のファイル生成
     .pipe($.cleanCss())
-    // ファイル名にminを付与します
     .pipe($.rename({ suffix: ".min" }))
-    // 本番用フォルダに保存します
-    .pipe(gulp.dest("dist/styles"));
+    .pipe(gulp.dest(`${path}dist/styles`));
+
   done();
 });
 
@@ -63,30 +73,41 @@ gulp.task("sass", function (done) {
  */
 
 gulp.task("js", function (done) {
+  // 未圧縮のファイルを圧縮
   gulp
-    // minifyファイルはtask「js-min」で別途処理しています
-    .src(["src/scripts/**/*.js", "!src/scripts/**/evac/*.js", "!src/scripts/**/*.min.js"])
+    .src([`${path}src/scripts/**/*.js`, `!${path}src/scripts/**/evac/*.js`, `!${path}src/scripts/**/*.min.js`])
     .pipe($.plumber({ errorHandler: $.notify.onError({ title: "gulp jsでエラーが発生しました", message: "<%= error.message %>" }) }))
-    // minify
-    // .pipe($.uglify())
-    // ファイル名にminを付与します
-    // .pipe($.rename({ suffix: '.min' }))
-    // 本番用フォルダに保存します
-    .pipe(gulp.dest("dist/scripts"));
+    .pipe($.uglify())
+    .pipe($.rename({ suffix: ".min" }))
+    .pipe(gulp.dest(`${path}dist/scripts`));
+
+  // 圧縮済みのファイルはそのまま利用
+  gulp
+    .src([`${path}src/scripts/**/*.min.js`, `!${path}src/scripts/**/evac/*.js`])
+    .pipe($.plumber({ errorHandler: $.notify.onError({ title: "gulp jsでエラーが発生しました", message: "<%= error.message %>" }) }))
+    .pipe(gulp.dest(`${path}dist/scripts`));
+
   done();
 });
 
 /**
- * JS関連（minify）
+ * 画像関連
  */
 
-gulp.task("js-min", function (done) {
+gulp.task("image", function (done) {
   gulp
-    // すでにminifyされているファイルを処理しています
-    .src(["src/scripts/**/*.min.js", "!src/scripts/**/evac/*.js"])
-    .pipe($.plumber({ errorHandler: $.notify.onError({ title: "gulp jsでエラーが発生しました", message: "<%= error.message %>" }) }))
-    // そのまま本番用フォルダに保存します
-    .pipe(gulp.dest("dist/scripts"));
+    .src(`${path}src/images/*.{png,jpg,gif,svg}`)
+    .pipe(
+      $.imagemin([
+        $.imageminPngquant({ quality: [0.65, 0.8] }),
+        $.imageminMozjpeg({ quality: 85 }),
+        $.imagemin.gifsicle({ interlaced: false, optimizationLevel: 1, colors: 256 }),
+        $.imagemin.mozjpeg(),
+        $.imagemin.optipng(),
+        $.imagemin.svgo(),
+      ])
+    )
+    .pipe(gulp.dest(`${path}dist/images`));
   done();
 });
 
@@ -96,109 +117,57 @@ gulp.task("js-min", function (done) {
 
 gulp.task("html", function (done) {
   gulp
-    .src("src/index.html")
+    .src(`${path}src/index.html`)
     .pipe($.plumber({ errorHandler: $.notify.onError({ title: "gulp sassでエラーが発生しました", message: "<%= error.message %>" }) }))
-    // ファイル名をminifyに変更しています
     .pipe($.replace(/.css"/g, '.min.css"'))
     .pipe($.replace(/.js"/g, '.min.js"'))
     .pipe($.replace(/.min.min./g, ".min."))
-    // 本番用フォルダに保存します
-    .pipe(gulp.dest("dist"));
+    .pipe(gulp.dest(`${path}dist`));
   done();
 });
-
-/**
- * 画像関連
- */
-
-// オプション
-const options = [
-  $.imageminPngquant({ quality: [0.65, 0.8] }),
-  $.imageminMozjpeg({ quality: 85 }),
-  $.imagemin.gifsicle({ interlaced: false, optimizationLevel: 1, colors: 256 }),
-  $.imagemin.mozjpeg(),
-  $.imagemin.optipng(),
-  $.imagemin.svgo(),
-];
-
-gulp.task("image", function (done) {
-  gulp
-    .src("src/images/*.{png,jpg,gif,svg}")
-    // 画像を圧縮します
-    .pipe($.imagemin(options))
-    // 本番用フォルダに保存します
-    .pipe(gulp.dest("dist/images"));
-  done();
-});
-
-/**
- * distフォルダ（本番用フォルダ）に保存
- */
-
-// HTMLベースバージョン
-gulp.task("init", gulp.series("sass", "js", "js-min", "image", "html"));
-
-// WordPressバージョン（HTMLは処理しません）
-gulp.task("init-wp", gulp.series("sass", "js", "js-min", "image"));
 
 /**
  * ブラウザー同期機能
  */
 
-// サーバーの起動（HTMLベースバージョン）
-gulp.task("browser-sync", function (done) {
+// HTMLベースバージョン
+gulp.task("browser-sync-html", function (done) {
   $.browserSync({
     server: { baseDir: "./" },
-    startPath: "src/index.html",
-    files: ["src/scripts/**", "src/styles/**", "src/images/**", "src/index.html"],
+    startPath: `${path}src/index.html`,
+    files: [`${path}src/scripts/**`, `${path}src/styles/**`, `${path}src/images/**`, `${path}src/index.html`],
     open: "external",
   });
   done();
 });
 
-// サーバーの起動（WordPressバージョン）
+// WordPressバージョン
 gulp.task("browser-sync-wp", function (done) {
   $.browserSync({
-    files: ["src/scripts/**", "src/styles/**", "src/images/**", "./**/*.php"],
-    proxy: "dip-blog.local", // Local by Flywheel にある「Site Domain」に合わせる
+    files: [`${path}src/scripts/**`, `${path}src/styles/**`, `${path}src/images/**`, `${path}**/*.php`],
+    proxy: proxy,
     open: "external",
   });
-  done();
-});
-
-// サーバーのリロード
-gulp.task("bs-reload", function (done) {
-  $.browserSync.reload();
   done();
 });
 
 /**
  * ファイル更新を監視
- * 本番用フォルダに更新を反映し、サーバーをリロード
  */
 
-// HTMLベースバージョン
 gulp.task("watch", function () {
-  gulp.watch("src/styles/**/*.scss", gulp.series("sass", "bs-reload"));
-  gulp.watch("src/scripts/**/*.js", gulp.series("js", "js-min", "bs-reload"));
-  gulp.watch("src/images/**/*.{png,jpg,gif,svg}", gulp.series("image", "bs-reload"));
-  gulp.watch("src/**/*.html", gulp.series("html", "bs-reload"));
-});
-
-// WordPressバージョン
-gulp.task("watch-wp", function () {
-  gulp.watch("src/styles/**/*.scss", gulp.series("sass", "bs-reload"));
-  gulp.watch("src/scripts/**/*.js", gulp.series("js", "js-min", "bs-reload"));
-  gulp.watch("src/images/**/*.{png,jpg,gif,svg}", gulp.series("image", "bs-reload"));
+  gulp.watch(`${path}src/styles/**/*.scss`, gulp.series("sass"));
+  gulp.watch(`${path}src/scripts/**/*.js`, gulp.series("js"));
+  gulp.watch(`${path}src/images/**/*.{png,jpg,gif,svg}`, gulp.series("image"));
+  gulp.watch(`${path}src/**/*.html`, gulp.series("html"));
 });
 
 /**
  * デフォルト処理
- * 使用方法： $ gulp
  */
 
 // HTMLベースバージョン
-gulp.task("default", gulp.series(gulp.parallel("init", "browser-sync", "watch")));
+gulp.task("default", gulp.series(gulp.parallel("sass", "js", "image", "html", "browser-sync-html", "watch")));
 
 // WordPressバージョン
-// gulp.task("default", gulp.series(gulp.parallel("init-wp", "browser-sync-wp", "watch-wp")));
+// gulp.task("default", gulp.series(gulp.parallel("sass", "js", "image", "browser-sync-wp", "watch")));

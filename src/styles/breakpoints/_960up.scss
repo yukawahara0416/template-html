@@ -3,30 +3,3 @@
 Stylesheet: 960px以上のモニタで適用
 
 ******************************************************************/
-
-.font-sm {
-  font-size: 1.6rem;
-  // @include f_around($size: 16, $weight: 400, $spacing: 0, $height: 18);
-  // @include line_height(16, 18);
-}
-.font-md {
-  font-size: 1.9rem;
-  // @include f_around($size: 19, $weight: 400, $spacing: 0, $height: 22);
-  // @include line_height(19, 22);
-}
-.font-lr {
-  font-size: 2.3rem;
-  // @include f_around($size: 23, $weight: 400, $spacing: 0, $height: 26);
-  // @include line_height(23, 26);
-}
-.font-lg {
-  font-size: 3.6rem;
-  // @include f_around($size: 36, $weight: 400, $spacing: 0, $height: 41);
-  // @include line_height(36, 41);
-}
-.mb-lg {
-  margin-bottom: 150px !important;
-}
-.pb-lg {
-  padding-bottom: 150px !important;
-}
