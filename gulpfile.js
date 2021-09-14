@@ -32,7 +32,37 @@ const $ = require("gulp-load-plugins")({
  * Sass関連
  */
 
-gulp.task("sass", function (done) {
+gulp.task("sass-src", function (done) {
+  gulp
+    .src(`${path}src/styles/**/*.scss`)
+    .pipe($.plumber({ errorHandler: $.notify.onError({ title: "gulp sassでエラーが発生しました", message: "<%= error.message %>" }) }))
+    .pipe(
+      $.sassGlob({
+        ignorePaths: ["**/evac/**/*.scss"],
+      })
+    )
+    .pipe($.sass({ outputStyle: "expanded" }))
+    .pipe($.postcss([$.autoprefixer()]))
+    .pipe($.postcss([$.cssdeclsort({ order: "alphabetical" })]))
+    .pipe($.mmq())
+    .pipe($.stylelint({ fix: true, failAfterError: false }))
+
+    // HTMLベースのみ使用可能です
+    // 未使用のクラスをCSSから削除します
+    // .pipe(
+    //   $.purgecss({
+    //     content: [`${path}dist/*.html`, `${path}dist/**/*.js`],
+    //     whitelist: $.purgecssWp.whitelist,
+    //     whitelistPatterns: $.purgecssWp.whitelistPatterns
+    //   })
+    // )
+
+    // 開発用のファイル生成
+    .pipe(gulp.dest(`${path}src/styles`));
+  done();
+});
+
+gulp.task("sass-dist", function (done) {
   gulp
     .src(`${path}src/styles/**/*.scss`)
     .pipe($.plumber({ errorHandler: $.notify.onError({ title: "gulp sassでエラーが発生しました", message: "<%= error.message %>" }) }))
@@ -64,7 +94,6 @@ gulp.task("sass", function (done) {
     .pipe($.cleanCss())
     .pipe($.rename({ suffix: ".min" }))
     .pipe(gulp.dest(`${path}dist/styles`));
-
   done();
 });
 
@@ -156,18 +185,25 @@ gulp.task("browser-sync-wp", function (done) {
  */
 
 gulp.task("watch", function () {
-  gulp.watch(`${path}src/styles/**/*.scss`, gulp.series("sass"));
+  gulp.watch(`${path}src/styles/**/*.scss`, gulp.series("sass-src"));
   gulp.watch(`${path}src/scripts/**/*.js`, gulp.series("js"));
   gulp.watch(`${path}src/images/**/*.{png,jpg,gif,svg}`, gulp.series("image"));
   gulp.watch(`${path}src/**/*.html`, gulp.series("html"));
 });
 
 /**
- * デフォルト処理
+ * 本番ファイル生成
+ */
+
+gulp.task("dist-html", gulp.series(gulp.parallel("sass-dist", "js", "image", "html")));
+gulp.task("dist-wp", gulp.series(gulp.parallel("sass-dist", "js", "image")));
+
+/**
+ * デフォルト処理（開発）
  */
 
 // HTMLベースバージョン
-gulp.task("default", gulp.series(gulp.parallel("sass", "js", "image", "html", "browser-sync-html", "watch")));
+gulp.task("default", gulp.series(gulp.parallel("sass-src", "browser-sync-html", "watch")));
 
 // WordPressバージョン
-// gulp.task("default", gulp.series(gulp.parallel("sass", "js", "image", "browser-sync-wp", "watch")));
+// gulp.task("default", gulp.series(gulp.parallel("sass-src", "browser-sync-wp", "watch")));
