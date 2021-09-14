@@ -36,11 +36,7 @@ gulp.task("sass-src", function (done) {
   gulp
     .src(`${path}src/styles/**/*.scss`)
     .pipe($.plumber({ errorHandler: $.notify.onError({ title: "gulp sassでエラーが発生しました", message: "<%= error.message %>" }) }))
-    .pipe(
-      $.sassGlob({
-        ignorePaths: ["**/evac/**/*.scss"],
-      })
-    )
+    .pipe($.sassGlob())
     .pipe($.sass({ outputStyle: "expanded" }))
     .pipe($.postcss([$.autoprefixer()]))
     .pipe($.postcss([$.cssdeclsort({ order: "alphabetical" })]))
@@ -66,11 +62,7 @@ gulp.task("sass-dist", function (done) {
   gulp
     .src(`${path}src/styles/**/*.scss`)
     .pipe($.plumber({ errorHandler: $.notify.onError({ title: "gulp sassでエラーが発生しました", message: "<%= error.message %>" }) }))
-    .pipe(
-      $.sassGlob({
-        ignorePaths: ["**/evac/**/*.scss"],
-      })
-    )
+    .pipe($.sassGlob())
     .pipe($.sass({ outputStyle: "expanded" }))
     .pipe($.postcss([$.autoprefixer()]))
     .pipe($.postcss([$.cssdeclsort({ order: "alphabetical" })]))
