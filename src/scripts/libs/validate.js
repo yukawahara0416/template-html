@@ -26,6 +26,11 @@ const options = {
       required: true,
       email: true,
     },
+    email_confirm: {
+      required: true,
+      email: true,
+      equalTo: "[name=email]",
+    },
     tel: {
       required: true,
       telnum: true,
@@ -44,26 +49,33 @@ const options = {
     //   required: '名前は必須項目です。',
     //   rangelength: '名前は3文字以上、6文字以下で入力してください。',
     // },
+    email_confirm: {
+      // required: "確認用メールアドレスを入力してください",
+      // email: "メールアドレスの形式で入力してください",
+      equalTo: "おなじメールアドレスを入力してください",
+    },
   },
+
   // フォーム内容がValidだった場合のコールバック関数を指定
   submitHandler(form) {
     form.submit();
   },
+
   // フォーム内容がInvalidだった場合のコールバック関数を指定
   invalidHandler(form, validator) {
-    $('#error').text('入力エラーが' + validator.numberOfInvalids() + '個あります');
+    $("#error").text("入力エラーが" + validator.numberOfInvalids() + "個あります");
   },
-  ignore: '.ignore', //class="ignore"はvalidateしない
+  ignore: ".ignore", //class="ignore"はvalidateしない
   debug: false, // デバッグモード フォームは送信されない
-  errorClass: 'error',
-  validClass: 'valid',
-  errorElement: 'p',
+  errorClass: "error",
+  validClass: "valid",
+  errorElement: "p",
   errorPlacement(err, element) {
     element.after(err);
   },
 };
 
-$('#myform').validate(options);
+$(".js-myform").validate(options);
 
 // jQuery Validate Pluginの解説とValidate 日本語環境用PluginとjQuery Form Pluginとの連携 - くらげだらけ https://kudakurage.hatenadiary.com/entry/20091211/1260521031
 // validate.jsの使い方をまとめてみた | ダボハゼのブログ https://dabohaze.site/validate-js-how-to/

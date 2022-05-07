@@ -4,41 +4,97 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../../styles/style.css" />
+    <!-- <link rel="stylesheet" href="../../styles/style.css" /> -->
     <title>Document</title>
   </head>
   <body>
-    <form id="myform">
+    <!-- HTMLでのお問い合わせフォーム作成を基礎から解説！作成例も紹介 - https://web-camp.io/magazine/archives/79464 -->
+    <form class="js-myform" action="confirm.php" method="post">
       <div>
-        <label>Name</label>
-        <input type="text" name="name" id="name" />
+        <!-- for属性とid属性に同じ値 -->
+        <label for="name">Name</label>
+        <!-- 初期値はvalue属性で指定できる -->
+        <input type="text" name="name" id="name" placeholder="山田太郎" />
       </div>
+      <!-- labelでinputをはさめばfor属性は不要
       <div>
-        <label>Kana</label>
+        <label>
+          Name<input type="text" name="name" id="name" />
+        </label>
+      </div>
+      -->
+      <div>
+        <label for="kana">Kana</label>
         <input type="text" name="kana" id="kana" />
       </div>
       <div>
-        <label>Age</label>
+        <label for="age">Age</label>
         <input type="number" min="18" name="age" id="age" />
       </div>
       <div>
-        <label>Email</label>
+        <label for="email">Email</label>
         <input type="text" name="email" id="email" />
       </div>
       <div>
-        <label>Tel</label>
+        <label for="email_confirm">Email Confirm</label>
+        <input type="text" name="email_confirm" id="email_confirm" />
+      </div>
+      <div>
+        <label for="tel">Tel</label>
         <input type="text" name="tel" id="tel" />
       </div>
       <div>
-        <label>Mobile</label>
+        <label for="mobile">Mobile</label>
         <input type="text" name="mobile" id="mobile" />
       </div>
       <div>
-        <label>ZIP</label>
+        <label for="zip">ZIP</label>
         <input type="text" name="zip" id="zip" />
       </div>
+      <select name="weather">
+        <option value="sunny">晴れ</option>
+        <option value="cloudy" selected>くもり</option>
+        <option value="rainy">雨</option>
+      </select>
+      <div>
+        <!-- name属性で質問をグループとして扱う -->
+        <p>好きな季節</p>
+        <input type="radio" name="season" id="spring" value="spring" checked />
+        <label for="spring">春</label>
+        <input type="radio" name="season" id="summer" value="summer" />
+        <label for="summer">夏</label>
+        <input type="radio" name="season" id="autumn" value="autumn" />
+        <label for="autumn">秋</label>
+        <input type="radio" name="season" id="winter" value="winter" />
+        <label for="winter">冬</label>
+        <p>好きな動物</p>
+        <input type="radio" name="animal" id="cat" value="cat" />
+        <label for="cat">猫</label>
+        <input type="radio" name="animal" id="dog" value="dog" />
+        <label for="dog">犬</label>
+      </div>
+      <div>
+        <p>希望する曜日</p>
+        <input type="checkbox" name="week" id="monday" value="monday" checked />
+        <label for="monday">月曜日</label>
+        <input type="checkbox" name="week" id="tuesday" value="tuesday" />
+        <label for="tuesday">火曜日</label>
+        <input type="checkbox" name="week" id="wednesday" value="wednesday" />
+        <label for="wednesday">水曜日</label>
+        <input type="checkbox" name="week" id="thursday" value="thursday" />
+        <label for="thursday">木曜日</label>
+        <input type="checkbox" name="week" id="friday" value="friday" />
+        <label for="friday">金曜日</label>
+      </div>
+      <div>
+        <label for="comment">コメント</label>
+        <!-- 初期値はタグ間　<textarea>こんにちは</textarea> -->
+        <textarea name="comment" id="comment" rows="3" cols="30"></textarea>
+      </div>
       <div id="error"></div>
-      <input type="submit" value="submit" />
+      <!-- buttonの方がカスタマイズの幅が広い -->
+      <!-- <input type="submit" value="submit" /> -->
+      <button type="submit">送信</button>
     </form>
 
     <script src="../../scripts/vendors/jquery-3.x-git.min.js"></script>
